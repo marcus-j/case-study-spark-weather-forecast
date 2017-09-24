@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="layout :: site-head">
+      <meta charset="UTF-8" />
+      <title>MPS</title>
+   </head>
+   <body>
+      <header th:replace="layout :: site-header" />
+      <h1>Patients</h1>
+      <form action="#" th:action="@{/patients}" th:object="${patient}" method="post">
+         <table>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Sex</th>
+               <th>Date of birth</th>
+               <th>Action</th>
+            </tr>
+            <tr>
+               <td></td>
+               <td><input type="text" th:field="*{name}" /></td>
+               <td>
+                  <select name="sex" th:field="*{sex}">
+                     <option th:each="sex : ${T(de.marcusjanke.casestudies.medicalprocedurescheduler.domain.Sex).values()}"
+                        th:value="${sex}" 
+                        th:text="${sex}">
+                     </option>
+                  </select>
+               </td>
+               <td><input type="date" th:field="*{dateOfBirth}" /></td>
+               <td><input type="submit" value="Submit" /></td>
+            </tr>
+            <tr th:each="patient: ${patients}">
+               <td th:text="${{patient.id}}" />
+               <td th:text="${{patient.name}}" />
+               <td th:text="${{patient.sex}}" />
+               <td th:text="${{patient.dateOfBirth}}" />
+            </tr>
+         </table>
+      </form>
+      <footer th:replace="layout :: site-footer" />
+   </body>
+</html>

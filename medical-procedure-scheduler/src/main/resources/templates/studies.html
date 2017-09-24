@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="layout :: site-head">
+      <meta charset="UTF-8" />
+      <title>MPS</title>
+   </head>
+   <body>
+      <header th:replace="layout :: site-header" />
+      <h1>Studies</h1>
+      <form action="#" th:action="@{/studies}" th:object="${study}" method="post">
+         <table>
+            <tr>
+               <th>ID</th>
+               <th>Description</th>
+               <th>Patient</th>
+               <th>Status</th>
+               <th>Start</th>
+               <th>End</th>
+               <th>Action</th>
+            </tr>
+            <tr>
+               <td></td>
+               <td><input type="text" th:field="*{description}" /></td>
+               <td>
+                  <select name="patient" th:field="*{patient}">
+                     <option th:each="patient : ${patients}"
+                        th:value="${patient.id}" 
+                        th:text="${patient.name}">
+                     </option>
+                  </select>
+               </td>
+               <td>
+                  <select name="status" th:field="*{status}">
+                     <option th:each="status : ${T(de.marcusjanke.casestudies.medicalprocedurescheduler.domain.Status).values()}"
+                        th:value="${status}" 
+                        th:text="${status}">
+                     </option>
+                  </select>
+               </td>
+               <td><input type="datetime-local" th:field="*{startTime}" /></td>
+               <td><input type="datetime-local" th:field="*{endTime}" /></td>
+               <td><input type="submit" value="Submit" /></td>
+            </tr>
+            <tr th:each="study: ${studies}">
+               <td th:text="${{study.id}}" />
+               <td th:text="${{study.description}}" />
+               <td th:text="${{study.patient.name}}" />
+               <td th:text="${{study.status}}" />
+               <td th:text="${{study.startTime}}" />
+               <td th:text="${{study.endTime}}" />
+            </tr>
+         </table>
+      </form>
+      <footer th:replace="layout :: site-footer" />
+   </body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="layout :: site-head">
+      <meta charset="UTF-8" />
+      <title>MPS</title>
+   </head>
+   <body>
+      <header th:replace="layout :: site-header" />
+      <h1>HTTP 400</h1>
+      <h2 th:text="${message}" />
+      <footer th:replace="layout :: site-footer" />
+   </body>
+</html>

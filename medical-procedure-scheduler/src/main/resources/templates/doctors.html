@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head th:replace="layout :: site-head">
+      <meta charset="UTF-8" />
+      <title>MPS</title>
+   </head>
+   <body>
+      <header th:replace="layout :: site-header" />
+      <h1>Doctors</h1>
+      <form action="#" th:action="@{/doctors}" th:object="${doctor}" method="post">
+         <table>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Action</th>
+            </tr>
+            <tr>
+               <td></td>
+               <td><input type="text" th:field="*{name}" /></td>
+               <td><input type="submit" value="Submit" /></td>
+            </tr>
+            <tr th:each="doctor: ${doctors}">
+               <td th:text="${{doctor.id}}" />
+               <td th:text="${{doctor.name}}" />
+            </tr>
+         </table>
+      </form>
+      <footer th:replace="layout :: site-footer" />
+   </body>
+</html>

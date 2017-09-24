@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head th:fragment="site-head">
+      <meta charset="UTF-8" />
+      <link rel="stylesheet" href="../public/css/styles.css" th:href="@{/css/styles.css}" />
+      <meta th:include="this :: head" th:remove="tag"/>
+   </head>
+   <body>
+      <header th:fragment="site-header">
+         <a href="index.html" th:href="@{/}">Home</a>
+         <a href="procedures/index.html" th:href="@{/procedures}">Procedures</a>
+         <a href="studies/index.html" th:href="@{/studies}">Studies</a>
+         <a href="patients/index.html" th:href="@{/patients}">Patients</a>
+         <a href="doctors/index.html" th:href="@{/doctors}">Doctors</a>
+         <a href="rooms/index.html" th:href="@{/rooms}">Rooms</a>         
+      </header>
+      <footer th:fragment="site-footer">
+         &copy; Medical Procedure Scheduler, Marcus Janke 2017
+      </footer>
+   </body>
+</html>
