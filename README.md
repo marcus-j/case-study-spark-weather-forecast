@@ -1,4 +1,3 @@
-# Case Study Collection
+# Case Study: Spark-based Weather Forecast
 
-This is a collection of case studies (sample projects) most of which were done as part of job interview processes.
 

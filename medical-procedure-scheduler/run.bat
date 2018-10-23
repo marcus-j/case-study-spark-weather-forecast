@@ -1,1 +1,0 @@
-java -jar target/medical-procedure-scheduler-0.0.1-SNAPSHOT.jar
