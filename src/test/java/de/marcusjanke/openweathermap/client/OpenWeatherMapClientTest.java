@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import de.marcusjanke.casestudies.weatherforecast.datasources.ClientValidationException;
 import de.marcusjanke.casestudies.weatherforecast.datasources.NotAllowedException;
-import de.marcusjanke.openweathermap.client.OpenWeatherMapClient;
 import de.marcusjanke.openweathermap.client.model.OpenWeatherMapForecast;
 
 /**
@@ -19,7 +18,7 @@ public class OpenWeatherMapClientTest {
 
 	/**
 	 * test if a forecast can be returned
-	 * 
+	 *
 	 * @throws NotAllowedException
 	 * @throws ClientValidationException
 	 */

@@ -1,5 +1,6 @@
 package de.marcusjanke.casestudies.weatherforecast.datasources;
 
+import static java.util.Collections.singletonList;
 import static org.mockito.Mockito.*;
 
 import java.util.Arrays;
@@ -51,7 +52,7 @@ public class OpenWeatherMapDataSourceTest {
 	public void testOpenWeatherMapForecastSingleElementForcaset()
 			throws NotAllowedException, ClientValidationException {
 		mockList(list1, main1, 5d, 0d, 6d);
-		when(openWeatherMapForecast.getList()).thenReturn(Arrays.asList(list1));
+		when(openWeatherMapForecast.getList()).thenReturn(singletonList(list1));
 		when(client.getForecast(TEST_CITY)).thenReturn(openWeatherMapForecast);
 		testOpenWeatherMapForecast(TEST_CITY, 5d, 0d, 6d);
 	}

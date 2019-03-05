@@ -1,20 +1,23 @@
 package de.marcusjanke.openweathermap.client;
 
-import java.util.Objects;
-
 import de.marcusjanke.casestudies.weatherforecast.datasources.ClientValidationException;
 import de.marcusjanke.casestudies.weatherforecast.datasources.NotAllowedException;
 
-public final class OpenWeatherMapClientUtil {
+import static java.util.Objects.isNull;
 
-	public static void validateApiKey(String apiKey) throws NotAllowedException {
-		if (Objects.isNull(apiKey)) {
+final class OpenWeatherMapClientUtil {
+
+	private OpenWeatherMapClientUtil() {
+	}
+
+	static void validateApiKey(String apiKey) throws NotAllowedException {
+		if (isNull(apiKey)) {
 			throw new NotAllowedException();
 		}
 	}
 
-	public static void validateCity(String city) throws ClientValidationException {
-		if (Objects.isNull(city)) {
+	static void validateCity(String city) throws ClientValidationException {
+		if (isNull(city)) {
 			throw new ClientValidationException();
 		}
 	}
